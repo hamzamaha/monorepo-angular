@@ -1,0 +1,166 @@
+<div class="row mt-3">
+  <div class="col-md-6">
+    <h1>Add user</h1>
+  </div>
+  <div class="col-md-6 text-end">
+    <a routerLink="/admin/product" class="btn btn-outline-primary"
+      >Back to list</a
+    >
+  </div>
+</div>
+
+<div class="row justify-content-center round">
+  <div class="col-lg-10 col-md-12">
+    <div class="card shadow-lg card-1">
+      <form class="card-body inner-card">
+        <div class="row justify-content-center">
+          <div class="col-lg-5 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="Title">User name</label
+              ><input
+                type="text"
+                formControlName="title"
+                class="form-control"
+                id="Title"
+                placeholder="Type your Product Title"
+              />
+            </div>
+            <div class="form-group">
+              <label for="Price">password</label>
+              <input
+                type="number"
+                formControlName="price"
+                class="form-control"
+                id="Price"
+                placeholder="Product Price"
+              />
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="Brand">email</label>
+              <input
+                type="text"
+                formControlName="brand"
+                class="form-control"
+                id="Brand"
+                placeholder="Product Brand"
+              />
+            </div>
+            <div class="form-group">
+              <label for="Stock">count Stock</label>
+              <input
+                type="number"
+                formControlName="stock"
+                class="form-control"
+                id="Stock"
+                placeholder="count Stock"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-10 col-12">
+            <!-- <div class="form-group">
+              <label for="category" class="form-label mt-4">Category</label>
+              <select
+                class="form-select"
+                id="category"
+                formControlName="category"
+              >
+                <option
+                  *ngFor="let category of categories"
+                  [value]="category._id"
+                >
+                  {{ category.label }}
+                </option>
+              </select>
+              <small
+                class="form-text text-danger"
+                *ngIf="
+                  productForm.get('category')?.invalid &&
+                  (productForm.get('category')?.touched ||
+                    productForm.get('category')?.dirty)
+                "
+              >
+                <p *ngIf="productForm.get('category')?.errors?.['required']">
+                  this field is required
+                </p>
+                <p *ngIf="productForm.get('category')?.errors?.['minlength']">
+                  this field should be greater than 4 caracter
+                </p>
+
+                <p *ngIf="productForm.get('category')?.errors?.['maxlength']">
+                  this max is 50 caracter
+                </p>
+                <p *ngIf="productForm.get('category')?.errors?.['pattern']">
+                  this field not respect our pattern
+                </p>
+              </small>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-10 col-12">
+            <div class="form-group">
+              <label for="inputEmail4">Rating</label>
+              <!-- <select class="form-control" formControlName="rating">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select> -->
+              <input
+                type="number"
+                formControlName="rating"
+                name="rating"
+                id="rating"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-10 col-12">
+            <div class="form-group">
+              <label for="Description">Product Description</label>
+              <textarea
+                formControlName="description"
+                class="form-control rounded-0"
+                id="Description"
+                placeholder="Product Description"
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-10 col-12">
+            <div class="form-group">
+              <label for="Content">Product Content</label>
+              <textarea
+                formControlName="content"
+                class="form-control rounded-0"
+                id="Content"
+                placeholder="Product Content"
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-4 col-auto d-grid">
+            <button type="button" class="btn btn-primary btn-block">
+              <small class="font-weight-bold">Add user</small>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

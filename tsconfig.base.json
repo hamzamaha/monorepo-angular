@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@hcoding/card": ["libs/card/src/index.ts"],
+      "@hcoding/shared": ["libs/shared/src/index.ts"],
+      "@hcoding/users": ["libs/users/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

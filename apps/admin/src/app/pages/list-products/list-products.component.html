@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-md-6"><h1>List of products</h1></div>
+  <div class="col-md-6 text-end">
+    <a routerLink="/admin/product/add" class="btn btn-outline-success"
+      >New product</a
+    >
+  </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Thumbnail</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Price</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Category</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>
+        <img
+          src="{{ product.thumbnail }}"
+          alt="{{ product.title }}"
+          style="height: 30px; width: 30px"
+        />
+      </td>
+      <td>{{ product.title }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.brand }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.rating }}</td>
+      <td>{{ product.category?.label }}</td>
+      <td class="text-end">
+        <a
+          class="btn btn-warning me-2"
+          [routerLink]="['/admin/product/edit/', product._id]"
+          >edit</a
+        >
+        <button
+          class="btn btn-danger"
+          (click)="deleteProduct(product?._id ?? '')"
+        >
+          delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

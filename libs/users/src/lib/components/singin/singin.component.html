@@ -1,0 +1,32 @@
+<div class="row my-5">
+  <div class="col-md-4 my-3 mx-auto">
+    <h1 class="text-center my-3">Sign In</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="email">email</label
+        ><input
+          type="text"
+          formControlName="email"
+          placeholder="your email"
+          class="form-control"
+          id="email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">password</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="your password"
+          password=""
+          class="form-control"
+        />
+      </div>
+      <div class="d-grid my-3">
+        <button class="btn btn-success">sign in</button>
+      </div>
+      <p class="text-danger" *ngIf="authError">{{ messageError }}</p>
+    </form>
+  </div>
+</div>

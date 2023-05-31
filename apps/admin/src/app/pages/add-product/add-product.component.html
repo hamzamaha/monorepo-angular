@@ -1,0 +1,173 @@
+<div class="row mx-auto">
+  <div class="col-md-12 text-center">
+    <h2>Add a Product</h2>
+  </div>
+</div>
+<form [formGroup]="productForm" (submit)="submit(productForm)">
+  <div class="form-group col-md-6 mx-auto">
+    <label class="col-form-label mt-4" for="title">title</label>
+    <input
+      formControlName="title"
+      type="text"
+      class="form-control"
+      placeholder="title"
+      id="title"
+      name="title"
+    />
+
+    <div
+      *ngIf="
+        (productForm.get('title')?.invalid &&
+          productForm.get('title')?.touched) ||
+        productForm.get('title')?.dirty
+      "
+    >
+      <div class="alert alert-dismissible alert-warning">
+        <div *ngIf="productForm.get('title')?.errors?.['required']">
+          This field is requrid !
+        </div>
+        <div *ngIf="productForm.get('title')?.errors?.['minlength']">
+          This field must have more than 4 caracters
+        </div>
+        <div *ngIf="productForm.get('title')?.errors?.['maxlength']">
+          This field must have more than 15 caracters
+        </div>
+        <div *ngIf="productForm.get('title')?.errors?.['pattern']">
+          this fields pattern is no correct
+        </div>
+      </div>
+    </div>
+
+    <label class="col-form-label mt-4" for="price">Price</label>
+    <input
+      formControlName="price"
+      type="number"
+      class="form-control"
+      placeholder="price"
+      id="price"
+      name="price"
+    />
+
+    <div
+      *ngIf="
+        (productForm.get('price')?.invalid &&
+          productForm.get('price')?.touched) ||
+        productForm.get('price')?.dirty
+      "
+    >
+      <div class="alert alert-warning">
+        <div *ngIf="productForm.get('price')?.errors?.['required']">
+          This field is requrid !
+        </div>
+      </div>
+    </div>
+
+    <label class="col-form-label mt-4" for="brand">Brand</label>
+    <input
+      formControlName="brand"
+      type="text"
+      class="form-control"
+      placeholder="brand"
+      id="brand"
+      name="brand"
+    />
+
+    <div
+      *ngIf="
+        (productForm.get('brand')?.invalid &&
+          productForm.get('brand')?.touched) ||
+        productForm.get('brand')?.dirty
+      "
+    >
+      <div class="alert alert-warning">
+        <div *ngIf="productForm.get('brand')?.errors?.['required']">
+          This field is requrid !
+        </div>
+      </div>
+    </div>
+
+    <label class="col-form-label mt-4" for="content">Content</label>
+    <input
+      formControlName="content"
+      type="text"
+      class="form-control"
+      placeholder="content"
+      id="content"
+      name="content"
+    />
+
+    <div
+      *ngIf="
+        (productForm.get('content')?.invalid &&
+          productForm.get('content')?.touched) ||
+        productForm.get('content')?.dirty
+      "
+    >
+      <div class="alert alert-warning">
+        <div *ngIf="productForm.get('content')?.errors?.['required']">
+          This field is requrid !
+        </div>
+      </div>
+    </div>
+
+    <label class="col-form-label mt-4" for="description">Description</label>
+    <input
+      formControlName="description"
+      type="text"
+      class="form-control"
+      placeholder="description"
+      id="description"
+      name="description"
+    />
+
+    <div
+      *ngIf="
+        (productForm.get('description')?.invalid &&
+          productForm.get('description')?.touched) ||
+        productForm.get('description')?.dirty
+      "
+    >
+      <div class="alert alert-dismissible alert-warning">
+        <div *ngIf="productForm.get('description')?.errors?.['required']">
+          This field is requrid !
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="category" class="form-label mt-4">Category</label>
+      <select class="form-select" id="category" formControlName="category">
+        <option *ngFor="let category of categories" [value]="category._id">
+          {{ category.label }}
+        </option>
+      </select>
+    </div>
+
+    <div
+      *ngIf="
+        (productForm.get('description')?.invalid &&
+          productForm.get('description')?.touched) ||
+        productForm.get('description')?.dirty
+      "
+    >
+      <div class="alert alert-dismissible alert-warning">
+        <div *ngIf="productForm.get('description')?.errors?.['required']">
+          This field is requrid !
+        </div>
+      </div>
+    </div>
+
+    <label class="col-form-label mt-4" for="thumbnail">Thumbnail</label>
+    <input
+      formControlName="thumbnail"
+      type="file"
+      class="form-control"
+      id="thumbnail"
+      name="thumbnail"
+    />
+
+    <div class="d-grid">
+      <button class="btn btn-outline-success mt-4">Add Product</button>
+    </div>
+  </div>
+</form>

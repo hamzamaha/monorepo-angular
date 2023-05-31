@@ -1,0 +1,120 @@
+<div class="row mt-3">
+  <div class="col-md-6">
+    <h1>Edit category</h1>
+  </div>
+  <div class="col-md-6 text-end">
+    <a routerLink="/admin/category" class="btn btn-outline-dark"
+      >Back to list</a
+    >
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 mx-auto mt-3">
+    <form [formGroup]="categoryForm" (submit)="submit(categoryForm)">
+      <div class="form-group">
+        <label for="label">Label</label>
+        <input
+          formControlName="label"
+          id="label"
+          type="text"
+          class="form-control"
+        />
+
+        <!-- Validation category-->
+        <small
+          class="form-text text-danger"
+          *ngIf="
+            categoryForm.get('label')?.invalid &&
+            (categoryForm.get('label')?.touched ||
+              categoryForm.get('label')?.dirty)
+          "
+        >
+          <p *ngIf="categoryForm.get('label')?.errors?.['required']">
+            this field is required
+          </p>
+          <p *ngIf="categoryForm.get('label')?.errors?.['minlength']">
+            this field should be greater than 5 caracter
+          </p>
+
+          <p *ngIf="categoryForm.get('label')?.errors?.['maxlength']">
+            this max is 19 caracter
+          </p>
+          <p *ngIf="categoryForm.get('label')?.errors?.['pattern']">
+            this field not respect our pattern
+          </p>
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="icon">Icon</label>
+        <input
+          formControlName="icon"
+          id="icon"
+          type="text"
+          class="form-control"
+        />
+        <!-- validate icon -->
+        <small
+          class="form-text text-danger"
+          *ngIf="
+            categoryForm.get('icon')?.invalid &&
+            (categoryForm.get('icon')?.touched ||
+              categoryForm.get('icon')?.dirty)
+          "
+        >
+          <p *ngIf="categoryForm.get('icon')?.errors?.['required']">
+            this field is required
+          </p>
+          <p *ngIf="categoryForm.get('icon')?.errors?.['minlength']">
+            this field should be greater than 5 caracter
+          </p>
+
+          <p *ngIf="categoryForm.get('icon')?.errors?.['maxlength']">
+            this max is 19 caracter
+          </p>
+          <p *ngIf="categoryForm.get('icon')?.errors?.['pattern']">
+            this field not respect our pattern
+          </p>
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="color">Color</label>
+        <input
+          formControlName="color"
+          id="color"
+          type="color"
+          class="form-control"
+        />
+        <!-- Validation color-->
+        <small
+          class="form-text text-danger"
+          *ngIf="
+            categoryForm.get('color')?.invalid &&
+            (categoryForm.get('color')?.touched ||
+              categoryForm.get('color')?.dirty)
+          "
+        >
+          <p *ngIf="categoryForm.get('color')?.errors?.['required']">
+            this field is required
+          </p>
+          <p *ngIf="categoryForm.get('color')?.errors?.['minlength']">
+            this field should be greater than 5 caracter
+          </p>
+
+          <p *ngIf="categoryForm.get('color')?.errors?.['maxlength']">
+            this max is 19 caracter
+          </p>
+          <p *ngIf="categoryForm.get('color')?.errors?.['pattern']">
+            this field not respect our pattern
+          </p>
+        </small>
+      </div>
+
+      <div class="d-grid mt-2">
+        <button class="btn btn-primary">edit category</button>
+      </div>
+    </form>
+  </div>
+</div>

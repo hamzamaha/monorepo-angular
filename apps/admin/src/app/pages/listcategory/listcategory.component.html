@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-6"><h1>List of categories</h1></div>
+  <div class="col-md-6 text-end">
+    <a routerLink="/admin/category/add" class="btn btn-outline-success"
+      >New category</a
+    >
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mt-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Label</th>
+          <th>icon</th>
+          <th>color</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories">
+          <td>{{ category.label }}</td>
+          <td>
+            <i [ngClass]="['fa', 'fa-3x', 'me-2', category.icon]"></i>
+            <span class="badge bg-secondary rounded">
+              {{ category.icon }}
+            </span>
+          </td>
+          <td [ngStyle]="{ color: category.color }">{{ category.color }}</td>
+          <td class="text-end">
+            <a
+              [routerLink]="['/admin/category/edit/', category._id]"
+              class="btn btn-warning me-2"
+              >edit</a
+            >
+            <button
+              class="btn btn-danger"
+              (click)="deleteCategory(category?._id ?? '')"
+            >
+              delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
